@@ -7,7 +7,7 @@ backend:
   phases:
     preBuild:
       commands:
-        - export AWS_ACCESS_KEY_ID=your-AKIASVLKCO4KQQTQZBCT
+        - export AWS_ACCESS_KEY_ID=AKIASVLKCO4KQQTQZBCT
         - export AWS_SECRET_ACCESS_KEY=fexb2iMjJyd8rM1Ixa0Qx7yrpAQS3Kzlxeu3Af0q
         - curl "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip" -L -o "aws-sam-cli.zip"
         - sudo unzip aws-sam-cli.zip -d sam-installation

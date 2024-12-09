@@ -8,9 +8,9 @@ backend:
     preBuild:
       commands:
         - curl "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip" -L -o "aws-sam-cli.zip"
-        - unzip aws-sam-cli.zip -d sam-installation
-        - ./sam-installation/install
-        - pip3 install -U boto3
+        - sudo unzip aws-sam-cli.zip -d sam-installation
+        - sudo ./sam-installation/install
+        - sudo pip3 install -U boto3
     build:
       commands:
         - sudo make backend

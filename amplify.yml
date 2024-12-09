@@ -13,13 +13,13 @@ backend:
         - pip3 install -U boto3
     build:
       commands:
-        - make backend
+        - sudo make backend
 frontend:
   phases:
     # IMPORTANT - Please verify your build commands
     build:
       commands:
-        - make frontend-build
+        - sudo make frontend-build
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /frontend/dist

@@ -20,14 +20,14 @@ backend:
     build:
       commands:
         - export AWS_PROFILE=kmicol
-        - sudo make backend
+        - sudo -E make backend
 frontend:
   phases:
     # IMPORTANT - Please verify your build commands
     build:
       commands:
         - export AWS_PROFILE=kmicol
-        - sudo make frontend-build
+        - sudo -E make frontend-build
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /frontend/dist

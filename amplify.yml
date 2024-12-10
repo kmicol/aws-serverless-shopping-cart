@@ -8,6 +8,7 @@ backend:
     preBuild:
       commands:
         - aws secretsmanager get-secret-value --secret-id KevinsAmplifyStuff --query 'SecretString' --output text > secrets.json
+        - export AWS_ACCESS_KEY_ID=$(jq -r '.AWS_ACCESS_KEY_ID' secrets.json) 
         - export AWS_SECRET_ACCESS_KEY=$(jq -r '.AWS_SECRET_ACCESS_KEY' secrets.json)
         - curl "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip" -L -o "aws-sam-cli.zip"
         - sudo unzip aws-sam-cli.zip -d sam-installation
@@ -21,15 +22,13 @@ backend:
   
     build:
       commands:
-        - export AWS_PROFILE=kmicol
-        - sudo -E make backend
+        - make backend
 frontend:
   phases:
     # IMPORTANT - Please verify your build commands
     build:
       commands:
-        - export AWS_PROFILE=kmicol
-        - sudo -E make frontend-build
+        - make frontend-build
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /frontend/dist
